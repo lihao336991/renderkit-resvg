@@ -10,6 +10,7 @@ extern "C" {
 #endif
 // Caller owns all buffers. Output: premultiplied RGBA, width * height * 4.
 // 0 success; 1 invalid argument/budget; 2 unsupported/invalid SVG; 3 panic.
+// The current budget is 2048 per side and 3,145,728 total pixels.
 uint32_t rk_resvg_abi_version(void);
 int32_t rk_resvg_render(const uint8_t *source, size_t source_len,
                        const uint8_t *font, size_t font_len,

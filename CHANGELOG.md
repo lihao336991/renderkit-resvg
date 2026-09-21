@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 - 2026-09-21
+
+- Add a public Android AAR with arm64-v8a and x86_64 JNI libraries, a stable
+  Java binding, Maven license/SCM metadata and bundled redistribution notices.
+- Enforce the 3,145,728 total-pixel budget and convert Rust panics into ABI
+  error code 3.
+- Keep all generated native binaries out of the source repository.
+
 ## 0.1.0 - 2026-09-21
 
 - Add the initial iOS XCFramework with arm64 device and arm64/x86_64 simulator slices.
