@@ -1,0 +1,5 @@
+/artifacts/
+/RenderKitResvg.xcframework/
+/target/
+*.zip
+.DS_Store

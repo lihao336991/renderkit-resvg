@@ -1,0 +1,21 @@
+[package]
+name = "renderkit-resvg"
+version = "0.1.0"
+edition = "2021"
+description = "A constrained C ABI wrapper around resvg for RenderKit hosts"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/lihao336991/renderkit-resvg"
+publish = false
+
+[lib]
+crate-type = ["staticlib", "rlib"]
+
+[dependencies]
+resvg = { version = "=0.48.1", default-features = false, features = ["text"] }
+roxmltree = "=0.21.1"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "s"
+strip = "debuginfo"

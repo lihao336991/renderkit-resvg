@@ -1,0 +1,277 @@
+[
+  {
+    "name": "adler2",
+    "version": "2.0.1",
+    "license": "0BSD OR MIT OR Apache-2.0"
+  },
+  {
+    "name": "arrayref",
+    "version": "0.3.9",
+    "license": "BSD-2-Clause"
+  },
+  {
+    "name": "arrayvec",
+    "version": "0.7.8",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "autocfg",
+    "version": "1.5.1",
+    "license": "Apache-2.0 OR MIT"
+  },
+  {
+    "name": "base64",
+    "version": "0.23.1",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "bitflags",
+    "version": "2.13.2",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "bytemuck",
+    "version": "1.25.2",
+    "license": "Zlib OR Apache-2.0 OR MIT"
+  },
+  {
+    "name": "bytemuck_derive",
+    "version": "1.12.1",
+    "license": "Zlib OR Apache-2.0 OR MIT"
+  },
+  {
+    "name": "cfg-if",
+    "version": "1.0.5",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "crc32fast",
+    "version": "1.5.2",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "data-url",
+    "version": "0.3.2",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "euclid",
+    "version": "0.22.14",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "fdeflate",
+    "version": "0.3.7",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "flate2",
+    "version": "1.1.10",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "float-cmp",
+    "version": "0.9.0",
+    "license": "MIT"
+  },
+  {
+    "name": "font-types",
+    "version": "0.12.5",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "fontdb",
+    "version": "0.24.0",
+    "license": "MIT"
+  },
+  {
+    "name": "harfrust",
+    "version": "0.12.0",
+    "license": "MIT"
+  },
+  {
+    "name": "imagesize",
+    "version": "0.15.0",
+    "license": "MIT"
+  },
+  {
+    "name": "kurbo",
+    "version": "0.13.1",
+    "license": "Apache-2.0 OR MIT"
+  },
+  {
+    "name": "log",
+    "version": "0.4.34",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "memchr",
+    "version": "2.8.3",
+    "license": "Unlicense OR MIT"
+  },
+  {
+    "name": "miniz_oxide",
+    "version": "0.8.9",
+    "license": "MIT OR Zlib OR Apache-2.0"
+  },
+  {
+    "name": "miniz_oxide",
+    "version": "0.9.1",
+    "license": "MIT OR Zlib OR Apache-2.0"
+  },
+  {
+    "name": "num-traits",
+    "version": "0.2.19",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "once_cell",
+    "version": "1.21.4",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "pico-args",
+    "version": "0.5.0",
+    "license": "MIT"
+  },
+  {
+    "name": "png",
+    "version": "0.18.1",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "polycool",
+    "version": "0.4.0",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "proc-macro2",
+    "version": "1.0.107",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "quote",
+    "version": "1.0.47",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "read-fonts",
+    "version": "0.41.0",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "resvg",
+    "version": "0.48.1",
+    "license": "Apache-2.0 OR MIT"
+  },
+  {
+    "name": "rgb",
+    "version": "0.8.53",
+    "license": "MIT"
+  },
+  {
+    "name": "roxmltree",
+    "version": "0.21.1",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "simd-adler32",
+    "version": "0.3.10",
+    "license": "MIT"
+  },
+  {
+    "name": "simplecss",
+    "version": "0.2.2",
+    "license": "Apache-2.0 OR MIT"
+  },
+  {
+    "name": "siphasher",
+    "version": "1.0.3",
+    "license": "MIT/Apache-2.0"
+  },
+  {
+    "name": "skrifa",
+    "version": "0.44.0",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "slotmap",
+    "version": "1.1.1",
+    "license": "Zlib"
+  },
+  {
+    "name": "smallvec",
+    "version": "1.16.1",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "strict-num",
+    "version": "0.1.1",
+    "license": "MIT"
+  },
+  {
+    "name": "svgtypes",
+    "version": "0.16.1",
+    "license": "Apache-2.0 OR MIT"
+  },
+  {
+    "name": "syn",
+    "version": "3.0.6",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "tiny-skia",
+    "version": "0.12.0",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "name": "tiny-skia-path",
+    "version": "0.12.0",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "name": "tinyvec",
+    "version": "1.13.3",
+    "license": "Zlib OR Apache-2.0 OR MIT"
+  },
+  {
+    "name": "unicode-bidi",
+    "version": "0.3.18",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "unicode-ident",
+    "version": "1.0.26",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0"
+  },
+  {
+    "name": "unicode-script",
+    "version": "0.5.8",
+    "license": "MIT OR Apache-2.0"
+  },
+  {
+    "name": "unicode-vo",
+    "version": "0.1.0",
+    "license": "MIT/Apache-2.0"
+  },
+  {
+    "name": "usvg",
+    "version": "0.48.1",
+    "license": "Apache-2.0 OR MIT"
+  },
+  {
+    "name": "version_check",
+    "version": "0.9.5",
+    "license": "MIT/Apache-2.0"
+  },
+  {
+    "name": "xmlwriter",
+    "version": "0.1.0",
+    "license": "MIT"
+  },
+  {
+    "name": "zlib-rs",
+    "version": "0.6.8",
+    "license": "Zlib"
+  }
+]
