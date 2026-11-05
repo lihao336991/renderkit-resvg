@@ -3,6 +3,9 @@
 
 use resvg::{tiny_skia, usvg};
 
+#[cfg(any(target_os = "ios", target_os = "android"))]
+mod system_fonts;
+
 const MAX_SOURCE: usize = 256 * 1024;
 const MAX_FONT: usize = 16 * 1024 * 1024;
 const MAX_DIMENSION: u32 = 2048;
@@ -47,8 +50,12 @@ fn render(source: &[u8], font: &[u8], width: u32, height: u32) -> Result<tiny_sk
         options.fontdb_mut().set_serif_family(family.clone());
         options.fontdb_mut().set_monospace_family(family);
     }
-    // No system font discovery, disk access or bundled font licensing hidden in the SDK.
-    if doc.descendants().any(|n| n.has_tag_name("text")) && options.fontdb.is_empty() { return Err(2); }
+    let has_text = doc.descendants().any(|n| n.has_tag_name("text"));
+    if has_text && options.fontdb.is_empty() { return Err(2); }
+    #[cfg(any(target_os = "ios", target_os = "android"))]
+    if has_text {
+        system_fonts::install(&mut options, &doc);
+    }
     let tree = usvg::Tree::from_str(text, &options).map_err(|_| 2)?;
     let mut pixmap = tiny_skia::Pixmap::new(width, height).ok_or(1)?;
     let scale = (width as f32 / tree.size().width()).min(height as f32 / tree.size().height());

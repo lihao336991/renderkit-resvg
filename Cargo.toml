@@ -14,6 +14,11 @@ crate-type = ["staticlib", "rlib"]
 resvg = { version = "=0.48.1", default-features = false, features = ["text"] }
 roxmltree = "=0.21.1"
 
+[target.'cfg(any(target_os = "ios", target_os = "android"))'.dependencies]
+memmap2 = "=0.9.9"
+skrifa = { version = "=0.44.0", default-features = false, features = ["std"] }
+unicode-script = "=0.5.8"
+
 [profile.release]
 lto = true
 codegen-units = 1

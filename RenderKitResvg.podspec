@@ -18,6 +18,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '15.0'
   spec.cocoapods_version = '>= 1.10'
   spec.vendored_frameworks = 'RenderKitResvg.xcframework'
+  spec.frameworks = 'CoreFoundation', 'CoreText'
   spec.resource_bundles = {
     'RenderKitResvgNotices' => [
       'Notices/THIRD-PARTY-NOTICES.txt',

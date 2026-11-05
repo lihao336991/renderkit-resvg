@@ -2,8 +2,11 @@
 
 `RenderKitResvg` is a constrained C ABI wrapper around
 [resvg](https://github.com/linebender/resvg). It accepts in-memory SVG and an
-optional in-memory font, renders into a caller-owned premultiplied RGBA buffer,
-and never loads system fonts, local files, or remote resources.
+optional in-memory primary font and renders into a caller-owned premultiplied
+RGBA buffer. Current mobile source resolves missing glyphs from read-only
+system fonts selected by Core Text or Android's system font configuration.
+SVG input cannot name local resources or fetch remote resources. The binary
+versions listed below predate system font fallback.
 
 The initial API intentionally rejects `image`, `filter`, `script`, and
 `foreignObject`, limits SVG/font input sizes and output dimensions, and catches
@@ -17,7 +20,8 @@ pod 'RenderKitResvg', '0.1.0'
 
 The Pod contains a static `RenderKitResvg.xcframework` for iOS 15 or later,
 including arm64 device and arm64/x86_64 simulator slices. Its public C API is
-declared in `renderkit_resvg.h`.
+declared in `renderkit_resvg.h`. When linking an XCFramework built from
+current source directly, link Core Text and Core Foundation.
 
 ## Android
 
