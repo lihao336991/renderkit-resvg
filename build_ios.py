@@ -8,7 +8,7 @@ import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "artifacts"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 MINIMUM_IOS = "15.0"
 
 

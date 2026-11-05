@@ -5,8 +5,7 @@
 optional in-memory primary font and renders into a caller-owned premultiplied
 RGBA buffer. Current mobile source resolves missing glyphs from read-only
 system fonts selected by Core Text or Android's system font configuration.
-SVG input cannot name local resources or fetch remote resources. The binary
-versions listed below predate system font fallback.
+SVG input cannot name local resources or fetch remote resources. The candidate versions below include system font fallback.
 
 The initial API intentionally rejects `image`, `filter`, `script`, and
 `foreignObject`, limits SVG/font input sizes and output dimensions, and catches
@@ -15,7 +14,7 @@ Rust panics at the ABI boundary.
 ## CocoaPods
 
 ```ruby
-pod 'RenderKitResvg', '0.1.0'
+pod 'RenderKitResvg', '0.1.1'
 ```
 
 The Pod contains a static `RenderKitResvg.xcframework` for iOS 15 or later,
@@ -26,7 +25,7 @@ current source directly, link Core Text and Core Foundation.
 ## Android
 
 ```kotlin
-implementation("io.github.lihao336991:renderkit-resvg-android:0.2.0")
+implementation("io.github.lihao336991:renderkit-resvg-android:0.2.1")
 ```
 
 The public AAR contains a small Java binding, arm64-v8a and x86_64 JNI
