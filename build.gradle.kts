@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.lihao336991"
-version = "0.2.0"
+version = "0.2.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -21,7 +21,8 @@ sourceSets {
 }
 
 val buildAndroidNative by tasks.registering(Exec::class) {
-    inputs.files("Cargo.toml", "Cargo.lock", "src/lib.rs", "include/renderkit_resvg.h",
+    inputs.dir("src")
+    inputs.files("Cargo.toml", "Cargo.lock", "include/renderkit_resvg.h",
         "android/src/main/cpp/renderkit_resvg_jni.cpp", "build_android.py")
     outputs.dir(layout.buildDirectory.dir("android"))
     commandLine("python3", "build_android.py")

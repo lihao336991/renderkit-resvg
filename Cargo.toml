@@ -1,6 +1,6 @@
 [package]
 name = "renderkit-resvg"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "A constrained C ABI wrapper around resvg for RenderKit hosts"
 license = "MIT OR Apache-2.0"
@@ -13,6 +13,11 @@ crate-type = ["staticlib", "rlib"]
 [dependencies]
 resvg = { version = "=0.48.1", default-features = false, features = ["text"] }
 roxmltree = "=0.21.1"
+
+[target.'cfg(any(target_os = "ios", target_os = "android"))'.dependencies]
+memmap2 = "=0.9.9"
+skrifa = { version = "=0.44.0", default-features = false, features = ["std"] }
+unicode-script = "=0.5.8"
 
 [profile.release]
 lto = true

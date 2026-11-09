@@ -9,7 +9,7 @@ import subprocess
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parent
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 COORDINATE = pathlib.Path("io/github/lihao336991/renderkit-resvg-android") / VERSION
 SOURCE = ROOT / "build/repository" / COORDINATE
 STAGING = ROOT / "build/central-bundle" / COORDINATE
