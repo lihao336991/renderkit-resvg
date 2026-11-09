@@ -5,7 +5,8 @@
 optional in-memory primary font and renders into a caller-owned premultiplied
 RGBA buffer. Current mobile source resolves missing glyphs from read-only
 system fonts selected by Core Text or Android's system font configuration.
-SVG input cannot name local resources or fetch remote resources. The candidate versions below include system font fallback.
+SVG input cannot name local resources or fetch remote resources. The published
+iOS 0.1.1 and Android 0.2.1 versions include system font fallback.
 
 The initial API intentionally rejects `image`, `filter`, `script`, and
 `foreignObject`, limits SVG/font input sizes and output dimensions, and catches
@@ -32,6 +33,15 @@ The public AAR contains a small Java binding, arm64-v8a and x86_64 JNI
 libraries, the wrapper licenses, Rust dependency notices and Android NDK
 notices. The shared objects are built from the pinned source during release;
 they are never committed to this source repository.
+
+## Font fallback limitations
+
+- usvg may reshape an entire text run with the fallback font, including Latin
+  characters that the supplied primary font already covers.
+- Language selection uses the root `xml:lang` and document-wide script hints.
+  Language declarations on individual `text` or `tspan` elements are not used.
+- Each render permits 256 system font lookups. Repeated unsupported characters
+  consume this budget and can prevent later characters from using system fonts.
 
 ## Build from source
 

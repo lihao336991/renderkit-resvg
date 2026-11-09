@@ -1,11 +1,12 @@
 # Changelog
 
-## iOS 0.1.1 / Android 0.2.1 - 2026-11-05 (candidate)
+## iOS 0.1.1 / Android 0.2.1
 
-- Resolve missing glyphs from eligible system fonts while keeping the supplied
-  primary font and the existing C and JNI interfaces.
+- Resolve missing glyphs from eligible system fonts through the existing C and
+  JNI interfaces.
 - Bound system font file size, cached mappings, and fallback lookups.
 - Include the new transitive dependency notices.
+- Publish Android 0.2.1 on 2026-11-05 and iOS 0.1.1 on 2026-11-09.
 
 ## 0.2.0 - 2026-09-21
 
