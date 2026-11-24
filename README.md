@@ -29,10 +29,10 @@ current source directly, link Core Text and Core Foundation.
 implementation("io.github.lihao336991:renderkit-resvg-android:0.2.1")
 ```
 
-The public AAR contains a small Java binding, arm64-v8a and x86_64 JNI
-libraries, the wrapper licenses, Rust dependency notices and Android NDK
-notices. The shared objects are built from the pinned source during release;
-they are never committed to this source repository.
+The published 0.2.1 AAR includes arm64-v8a and x86_64 JNI libraries.
+Android builds from this source also include armeabi-v7a. Each AAR includes a
+Java binding, the wrapper licenses, and Rust and Android NDK notices. The
+shared objects are built from source during release.
 
 ## Font fallback limitations
 
@@ -51,9 +51,18 @@ Install Rust 1.89.0 and the Apple targets, then run:
 rustup target add --toolchain 1.89.0 \
   aarch64-apple-ios aarch64-apple-ios-sim x86_64-apple-ios
 python3 build_ios.py
-python3 build_android.py
+```
+
+For Android, install NDK 27.2.12479018 and the Rust targets, then assemble the AAR.
+
+```sh
+rustup target add --toolchain 1.89.0 \
+  aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
 ./gradlew assemble
 ```
+
+To smoke-test the 32-bit JNI library on a device that can run 32-bit apps, run
+`python3 verify_android.py --device SERIAL --abi armeabi-v7a`.
 
 The generated XCFramework is written to
 `artifacts/RenderKitResvg.xcframework`. Build outputs are not committed.
