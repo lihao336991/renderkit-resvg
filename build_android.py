@@ -34,12 +34,17 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     checksums = []
-    for abi, rust_target in (("arm64-v8a", "aarch64-linux-android"), ("x86_64", "x86_64-linux-android")):
+    targets = (
+        ("arm64-v8a", "aarch64-linux-android", "aarch64-linux-android"),
+        ("armeabi-v7a", "armv7-linux-androideabi", "armv7a-linux-androideabi"),
+        ("x86_64", "x86_64-linux-android", "x86_64-linux-android"),
+    )
+    for abi, rust_target, clang_target in targets:
         run("cargo", "build", "--locked", "--release", "--target", rust_target)
         archive = ROOT / "target" / rust_target / "release/librenderkit_resvg.a"
         destination = OUT / "jni" / abi / "librenderkit_resvg_jni.so"
         destination.parent.mkdir(parents=True, exist_ok=True)
-        run(toolchain / "clang++", f"--target={rust_target}26", f"--sysroot={toolchain.parent / 'sysroot'}",
+        run(toolchain / "clang++", f"--target={clang_target}26", f"--sysroot={toolchain.parent / 'sysroot'}",
             "-shared", "-fPIC", "-O2", "-fvisibility=hidden", "-static-libstdc++",
             "-Wl,--gc-sections", "-Wl,-z,max-page-size=16384", "-Wl,--exclude-libs,ALL",
             f"-I{ROOT / 'include'}", ROOT / "android/src/main/cpp/renderkit_resvg_jni.cpp",

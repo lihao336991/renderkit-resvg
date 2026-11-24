@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the published AAR binding and arm64 JNI library on a connected device."""
+"""Run the AAR binding and JNI library on a connected device."""
 
 import argparse
 import os
@@ -17,7 +17,7 @@ def run(*args):
     subprocess.run([str(arg) for arg in args], check=True)
 
 
-def verify(sdk, serial):
+def verify(sdk, serial, abi):
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
@@ -25,7 +25,7 @@ def verify(sdk, serial):
     with zipfile.ZipFile(aar) as archive:
         archive.extract("classes.jar", OUT)
         so = OUT / "librenderkit_resvg_jni.so"
-        so.write_bytes(archive.read("jni/arm64-v8a/librenderkit_resvg_jni.so"))
+        so.write_bytes(archive.read(f"jni/{abi}/librenderkit_resvg_jni.so"))
     classes = OUT / "classes"
     classes.mkdir()
     run("javac", "-source", "8", "-target", "8", "-cp", OUT / "classes.jar",
@@ -41,7 +41,8 @@ def verify(sdk, serial):
                          (OUT / "librenderkit_resvg_jni.so", "librenderkit_resvg_jni.so"),
                          (ROOT / "fixtures/defs-marker-end.svg", "marker.svg")):
         run(*adb, "push", source, f"{remote}/{name}")
-    run(*adb, "shell", f"CLASSPATH={remote}/classes.zip app_process "
+    app_process = "/system/bin/app_process32" if abi == "armeabi-v7a" else "app_process"
+    run(*adb, "shell", f"CLASSPATH={remote}/classes.zip {app_process} "
         f"-Djava.library.path={remote} /system/bin "
         f"io.github.lihao336991.renderkit.resvg.JniSmoke {remote}/marker.svg")
 
@@ -51,5 +52,6 @@ if __name__ == "__main__":
     parser.add_argument("--sdk", type=pathlib.Path,
                         default=os.environ.get("ANDROID_HOME", pathlib.Path.home() / "Library/Android/sdk"))
     parser.add_argument("--device", required=True)
+    parser.add_argument("--abi", choices=("arm64-v8a", "armeabi-v7a"), default="arm64-v8a")
     arguments = parser.parse_args()
-    verify(arguments.sdk, arguments.device)
+    verify(arguments.sdk, arguments.device, arguments.abi)
