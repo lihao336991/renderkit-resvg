@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.lihao336991"
-version = "0.2.1"
+version = "0.2.2"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
