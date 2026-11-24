@@ -10,7 +10,7 @@ import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "build/android-device-smoke"
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 
 
 def run(*args):
